@@ -1,27 +1,20 @@
 import productsArray, {
     getProductsObject,
     ProductsProps,
-    getProductsPriceObject,
 } from 'components/Products/productsArray'
 
 type Props = {
     productsInCart: {
         [id: number]: number
-        
     }
     productsObject?: {
         [id: number]: ProductsProps
-    }
-    productsPriceObject?: {
-        [price: number]: ProductsProps
     }
 }
 
 function CartHeader({
     productsInCart,
     productsObject = getProductsObject(productsArray),
-    productsPriceObject = getProductsPriceObject(productsArray),
-    
 }: Props) {
     return (
         <div>
@@ -33,9 +26,7 @@ function CartHeader({
                     </div>
                 ))}
             </div>
-            <div>
-                Total: {} $
-            </div>
+            <div>Total: {} $</div>
         </div>
     )
 }

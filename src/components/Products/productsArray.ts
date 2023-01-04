@@ -80,12 +80,5 @@ export const getProductsObject = (array:ProductsProps[]) => array.reduce(
     {}
 )
 
-export const getProductsPriceObject = (array:ProductsProps[]) => array.reduce(
-    (object, product) => ({
-        ...object,
-        [product.price]: product,
-    }),
-    {}
-)
 
 export default productsArray
