@@ -2,7 +2,7 @@ import Container from '@mui/material/Container'
 import Home from 'pages/Home/Home'
 
 type Props = {
-    addProductToCart: (id: number, price: number, count: number) => void
+    addProductToCart: (id: number, count: number) => void
 
 }
 const Main = ({ addProductToCart }: Props) => {
