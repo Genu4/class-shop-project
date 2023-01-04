@@ -13,6 +13,7 @@ type Props = {
     
     productsInCart:{
         [id: number]: number
+        
     }
 }
 

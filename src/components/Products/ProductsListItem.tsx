@@ -16,7 +16,7 @@ type Props = {
     capacity: string
     price: number
     image: string
-    addProductToCart: (id: number, count: number) => void
+    addProductToCart: (id: number,  price: number, count: number) => void
 }
 const ProductsListItem = ({
     id,
@@ -73,7 +73,7 @@ const ProductsListItem = ({
 
             <CardActions className="btns-wrap">
                 <Button variant="outlined" 
-                onClick={() => addProductToCart(id, count)}>
+                onClick={() => addProductToCart(id, price, count)}>
                     Add to cart
                 </Button>
             </CardActions>

@@ -9,15 +9,14 @@ type ProductsInCart = {
 }
 const App = () => {
     const [productsInCart, setProductsInCart] = useState<ProductsInCart>({
-        // 1: 5,
-        // 2: 5,
         
     })
-
-    const addProductToCart = (id:number, count:number) => {
+    console.log(productsInCart)
+    const addProductToCart = (id:number, price: number, count:number) => {
         setProductsInCart((prevState:ProductsInCart) => ({
             ...prevState,
-            [id]: (prevState[id] || 0) + count
+            [id]: (prevState[id] || 0) + count,
+            [price]: (prevState[price] || 0) + count * price
         }))
     }
 

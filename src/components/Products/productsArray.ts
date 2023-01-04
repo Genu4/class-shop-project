@@ -1,4 +1,4 @@
-type ProductsProps = {
+export type ProductsProps = {
     id:number
     title: string
     desc: string
@@ -70,5 +70,22 @@ const productsArray:ProductsProps[] = [
         image:"/images/iphone-green.jpg"
     }
 ]
+
+export const getProductsObject = (array:ProductsProps[]) => array.reduce(
+    (object, product) => ({
+        ...object,
+        [product.id]: product,
+        
+    }),
+    {}
+)
+
+export const getProductsPriceObject = (array:ProductsProps[]) => array.reduce(
+    (object, product) => ({
+        ...object,
+        [product.price]: product,
+    }),
+    {}
+)
 
 export default productsArray
