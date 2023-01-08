@@ -26,7 +26,17 @@ function CartHeader({
                     </div>
                 ))}
             </div>
-            <div>Total: {} $</div>
+            <div>
+                Total:{' '}
+                {Object.keys(productsInCart).reduce(
+                    (total, productId) =>
+                        total +
+                        productsInCart[parseInt(productId)] *
+                            productsObject[parseInt(productId)].price,
+                    0
+                )}{' '}
+                $
+            </div>
         </div>
     )
 }
