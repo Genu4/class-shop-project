@@ -19,9 +19,9 @@ const CartProductsList = ({
     <div>
                 {Object.keys(productsInCart).map((productId) => (
                     <div key={productId}>
-                        {productsObject[parseInt(productId)].title} :
+                        {productsObject[parseInt(productId)].title} :{' '}
                         {productsInCart[parseInt(productId)]} :{' '}
-                        {productsObject[parseInt(productId)].price}
+                        {productsObject[parseInt(productId)].price}{' '}$
                     </div>
                 ))}
             </div>
