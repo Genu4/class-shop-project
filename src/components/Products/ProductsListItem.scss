@@ -1,8 +1,6 @@
 .product-list-item {
     padding: 15px;
 
-    
-
     .product-title {
         margin: 10px;
         font-size: 25px;
@@ -31,15 +29,6 @@
         text-align: center;
         font-weight: bold;
     }
-
-    .product-quantity {
-        display: flex;
-        margin: 15px 0;
-        input {
-            text-align: center;
-        }
-
-    }
 }
 
 .btns-wrap {
@@ -54,5 +43,13 @@
     img {
         width: 150px;
         height: auto;
+    }
+}
+
+.product-quantity {
+    display: flex;
+    margin: 15px 0;
+    input {
+        text-align: center;
     }
 }
