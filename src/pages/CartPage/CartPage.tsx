@@ -14,10 +14,7 @@ type Props = {
         [id: number]: ProductsProps
     }
 }
-const CartPage = ({
-    productsInCart,
-    productsObject = getProductsObject(productsArray),
-}: Props) => {
+const CartPage = ({ productsInCart }: Props) => {
     return (
         <div>
             <Typography
@@ -28,7 +25,7 @@ const CartPage = ({
             >
                 Cart
             </Typography>
-            <CartProductsList productsInCart={productsInCart}/>
+            <CartProductsList productsInCart={productsInCart} />
             <CartTotal productsInCart={productsInCart} />
         </div>
     )

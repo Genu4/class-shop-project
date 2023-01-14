@@ -15,8 +15,8 @@ type Props = {
 }
 
 function CartHeader({
-    productsInCart,
-    productsObject = getProductsObject(productsArray),
+    productsInCart
+    
 }: Props) {
     return (
         <div>
