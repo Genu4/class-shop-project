@@ -12,7 +12,7 @@ const Quantity = ({ count, onDecrement, onIncrement }: Props) => {
             <Button
                 variant="outlined"
                 onClick={() => onDecrement()}
-                disabled={count <= 1}
+                // disabled={count <= 1}
             >
                 -
             </Button>

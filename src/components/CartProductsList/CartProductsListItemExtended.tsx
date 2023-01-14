@@ -29,6 +29,7 @@ const CartProductsListItemExtended = ({
                         <Quantity
                             count={productCount}
                             onDecrement={() =>
+                                productCount === 1 ? removeProductFromCart(product.id) :
                                 changeProductQuantity(
                                     product.id,
                                     productCount - 1
