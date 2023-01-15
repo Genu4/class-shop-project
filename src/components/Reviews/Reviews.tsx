@@ -7,6 +7,7 @@ import {
     Typography,
 } from '@mui/material'
 import { useState } from 'react'
+import './Review.scss'
 
 type Props = {}
 
@@ -61,7 +62,7 @@ const Reviews = (props: Props) => {
     }
 
     return (
-        <>
+        <div className="review">
             <Typography variant="h4" sx={{ margin: '50px 0' }}>
                 Reviews
             </Typography>
@@ -81,11 +82,12 @@ const Reviews = (props: Props) => {
                     </Card>
                 ))}
             </div>
-            <form onSubmit={handleSubmit}>
-                <h3>Please lieave a review</h3>
+            <form className='review-form' onSubmit={handleSubmit}>
+                <h3 className='form-header'>Please lieave a review</h3>
                 <div>
                     <TextField
-                        size="small"
+                        className="user-name"
+                        // size="small"
                         placeholder="Your name"
                         value={newReview.name}
                         onChange={handleName}
@@ -97,6 +99,7 @@ const Reviews = (props: Props) => {
                     }}
                 >
                     <TextareaAutosize
+                        className="user-text"
                         minRows={5}
                         placeholder="Your text"
                         value={newReview.text}
@@ -107,7 +110,7 @@ const Reviews = (props: Props) => {
                     Send
                 </Button>
             </form>
-        </>
+        </div>
     )
 }
 export default Reviews

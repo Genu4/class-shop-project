@@ -1,0 +1,32 @@
+.review {
+    width: 100%;
+    margin-top: 20px;
+    border-top: 1px solid green;
+    h4 {
+        margin-left: 20px;
+    }
+
+    .review-form {
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        border-radius: 4px;
+        padding: 20px;
+        
+        .user-name {
+            width: 25%;
+        }
+        .user-name::placeholder {
+            font-size: 14px;
+            padding: 5px;
+        }
+
+        .user-text {
+            width: 25%;
+            resize: none;
+            padding: 16px 14px;
+        }
+
+        .user-text::placeholder {
+            font-size: 14px;
+        }
+    }
+}

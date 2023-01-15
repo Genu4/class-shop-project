@@ -4,7 +4,9 @@ import { useState } from 'react'
 import './ProductsListItem.scss'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
-import { useAppSelector } from 'redux/hooks'
+import { useAppDispatch, useAppSelector } from 'redux/hooks'
+import { removeLike, addLike } from 'redux/LikeReducer'
+
 
 type Props = {
     id: number
@@ -36,11 +38,19 @@ const ProductsListItem = ({
     }
 
     const isLiked = useAppSelector((state) => state.likeProducts[id])
+    const dispatch = useAppDispatch()
 
     return (
         <Card className="product-list-item">
             <CardContent>
-                <Button variant="outlined">
+                <Button
+                    variant="outlined"
+                    onClick={() =>
+                        isLiked
+                            ? dispatch(removeLike(id))
+                            : dispatch(addLike(id))
+                    }
+                >
                     {isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
                 </Button>
                 <div className="product-img">
