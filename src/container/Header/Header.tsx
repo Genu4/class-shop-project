@@ -36,7 +36,7 @@ const Header = ({productsInCart}: Props) => {
                     </div>
 
                     <Menu />
-                    <CartHeader productsInCart={productsInCart}/>
+                    <CartHeader />
                 </Toolbar>
             </Container>
         </AppBar>
