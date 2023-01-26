@@ -3,19 +3,15 @@ import { ProductsProps } from 'components/Products/productsArray'
 import DeleteIcon from '@mui/icons-material/Delete'
 import Quantity from 'components/Quantity/Quantity'
 import { useAppDispatch } from 'redux/hooks'
-import { removeProductFromCart } from 'redux/cartReducer'
+import { removeProductFromCart, changeProductQuantity } from 'redux/cartReducer'
 
 type Props = {
     product: ProductsProps
     productCount: number
     removeProductFromCart?: (id: number) => void
-    changeProductQuantity: (id: number, count: number) => void
+    changeProductQuantity?: (id: number, count: number) => void
 }
-const CartProductsListItemExtended = ({
-    product,
-    changeProductQuantity,
-    productCount,
-}: Props) => {
+const CartProductsListItemExtended = ({ product, productCount }: Props) => {
     const dispatch = useAppDispatch()
     return (
         <Grid item xs={12} sm={4}>
@@ -35,15 +31,19 @@ const CartProductsListItemExtended = ({
                                     ? dispatch(
                                           removeProductFromCart(product.id)
                                       )
-                                    : changeProductQuantity(
-                                          product.id,
-                                          productCount - 1
+                                    : dispatch(
+                                          changeProductQuantity({
+                                              id: product.id,
+                                              count: productCount - 1,
+                                          })
                                       )
                             }
                             onIncrement={() =>
-                                changeProductQuantity(
-                                    product.id,
-                                    productCount + 1
+                                dispatch(
+                                    changeProductQuantity({
+                                        id: product.id,
+                                        count: productCount + 1,
+                                    })
                                 )
                             }
                             minCount={0}

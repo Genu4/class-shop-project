@@ -15,10 +15,14 @@ export const cartSlice = createSlice({
             ...prevState,
             [action.payload.id]: (prevState[action.payload.id] || 0) + action.payload.count
         }),
-        removeProductFromCart:(prevState, action) => (omit(prevState,action.payload))
+        removeProductFromCart:(prevState, action) => (omit(prevState,action.payload)),
+        changeProductQuantity: (prevState, action) => ({
+            ...prevState,
+            [action.payload.id]: action.payload.count
+        })
     }
 })
 
-export const {addProductToCart, removeProductFromCart} = cartSlice.actions
+export const {addProductToCart, removeProductFromCart, changeProductQuantity} = cartSlice.actions
 
 export default cartSlice.reducer
