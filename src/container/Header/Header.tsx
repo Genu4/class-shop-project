@@ -9,15 +9,7 @@ import logo from 'assets/logo.svg'
 import Menu from 'components/Menu/Menu'
 import CartHeader from 'components/CartHeader/CartHeader'
 
-type Props = {
-    
-    productsInCart:{
-        [id: number]: number
-        
-    }
-}
-
-const Header = ({productsInCart}: Props) => {
+const Header = () => {
     return (
         <AppBar position="static" className="app-bar">
             <Container maxWidth="lg">
