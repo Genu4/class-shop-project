@@ -1,8 +1,13 @@
 import { Typography } from '@mui/material'
-import productsArray, {
+import {
     getProductsObject,
     ProductsProps,
 } from 'components/Products/productsArray'
+import { useAppSelector } from 'redux/hooks'
+
+type ProductsObject = {
+    [id: number]: ProductsProps
+}
 
 type Props = {
     productsInCart: {
@@ -14,8 +19,10 @@ type Props = {
 }
 const CartTotal = ({
     productsInCart,
-    productsObject = getProductsObject(productsArray),
+    
 }: Props) => {
+    const productsArray = useAppSelector((state) => state.products)
+    const productsObject: ProductsObject = getProductsObject(productsArray)
     return (
         <div>
             Total: {' '}

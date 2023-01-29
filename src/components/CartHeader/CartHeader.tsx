@@ -1,6 +1,6 @@
 import CartProductsList from 'components/CartProductsList/CartProductsList'
 import CartTotal from 'components/CartTotal/CartTotal'
-import productsArray, {
+import {
     getProductsObject,
     ProductsProps,
 } from 'components/Products/productsArray'

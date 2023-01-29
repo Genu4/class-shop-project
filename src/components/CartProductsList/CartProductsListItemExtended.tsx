@@ -18,9 +18,9 @@ const CartProductsListItemExtended = ({ product, productCount }: Props) => {
                 <CardContent>
                     <div>
                         <div className="product-img">
-                            <img src={product.image} alt={product.title} />
+                            <img src={product.image} alt={product.name} />
                         </div>
-                        <div>{product.title}</div>
+                        <div>{product.name}</div>
                         <p>Price for one item: {product.price}</p>
                         <p>Count: {productCount}</p>
                         <Quantity
