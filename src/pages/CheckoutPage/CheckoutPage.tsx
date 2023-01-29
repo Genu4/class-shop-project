@@ -1,4 +1,5 @@
 import { Typography } from '@mui/material'
+import axios from 'axios'
 import React, { useState } from 'react'
 
 type Props = {}
@@ -16,14 +17,14 @@ const CheckoutPage = (props: Props) => {
         address: '',
     })
 
-    const handleName = (e:React.ChangeEvent<HTMLInputElement>) => {
+    const handleName = (e: React.ChangeEvent<HTMLInputElement>) => {
         setOrderData((prevState: Order) => ({
             ...prevState,
             name: e.target.value,
         }))
     }
 
-    const handleAddress = (e:React.ChangeEvent<HTMLInputElement>) => {
+    const handleAddress = (e: React.ChangeEvent<HTMLInputElement>) => {
         setOrderData((prevState: Order) => ({
             ...prevState,
             address: e.target.value,
@@ -32,11 +33,27 @@ const CheckoutPage = (props: Props) => {
 
     const orderSend = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
+        axios
+            .post(
+                'https://my-json-server.typicode.com/kznkv-skillup/server/orders',
+                {
+                    name: orderData.name,
+                    address: orderData.address,
+                }
+            )
+            .then((res) => res.data)
+            .then(({ name, address }) => {
+                setOrderData({
+                    name,
+                    address,
+                })
+                setIsOrderSend(true)
+            })
     }
 
     const renderForm = () => {
         return (
-            <form action="">
+            <form onSubmit={orderSend}>
                 <div>
                     <input
                         type="text"
@@ -66,7 +83,7 @@ const CheckoutPage = (props: Props) => {
             </div>
         )
     }
-    
+
     return (
         <>
             <Typography variant="h4">Checkout</Typography>
