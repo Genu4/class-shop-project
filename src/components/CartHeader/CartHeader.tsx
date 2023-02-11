@@ -1,9 +1,6 @@
 import CartProductsList from 'components/CartProductsList/CartProductsList'
 import CartTotal from 'components/CartTotal/CartTotal'
-import productsArray, {
-    getProductsObject,
-    ProductsProps,
-} from 'components/Products/productsArray'
+import { ProductsProps } from 'components/Products/productsArray'
 
 type Props = {
     productsInCart: {
@@ -14,10 +11,7 @@ type Props = {
     }
 }
 
-function CartHeader({
-    productsInCart
-    
-}: Props) {
+function CartHeader({ productsInCart }: Props) {
     return (
         <div>
             <CartProductsList productsInCart={productsInCart} />
